@@ -4,66 +4,252 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me - Joanah Loraine</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="about.css">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Include main index.css -->
+  <link rel="stylesheet" href="index.css">
+
+  <style>
+    /* About Section */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 100px 60px;
+      background: #f8e1ff;
+      border-radius: 20px;
+      margin: 120px auto;
+      width: 85%;
+      max-width: 1000px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      align-items: flex-start;
+    }
+
+    .about-photo {
+      flex: 0 0 320px;
+    }
+
+    .about-photo img {
+      width: 320px;
+      height: 320px;
+      border-radius: 15px;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(123,44,191,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .about-photo img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(123,44,191,0.3);
+    }
+
+    .about-text {
+      flex: 1 1 500px;
+      min-width: 300px;
+    }
+
+    .about-text h3 {
+      font-size: 1rem;
+      color: #7b2cbf;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .about-text h2 {
+      font-size: 2.2rem;
+      color: #4a1760;
+      margin-bottom: 20px;
+      font-family: Georgia, serif;
+    }
+
+    .about-text h2 span {
+      color: #7b2cbf;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: #4a1760;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    /* Education Section */
+    .about-education {
+      flex-basis: 100%;
+      margin-top: 40px;
+    }
+
+    .about-education h3 {
+      font-size: 1.3rem;
+      color: #7b2cbf;
+      margin-bottom: 15px;
+      font-family: Georgia, serif;
+    }
+
+    .about-education ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .about-education li {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: #4a1760;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .about-education li::before {
+      content: "•";
+      color: #7b2cbf;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+    }
+
+    .about-education strong {
+      color: #5a189a;
+    }
+
+    /* Resume Button */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #c77dff;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      margin-top: 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #a855f7;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #a855f7aa;
+    }
+
+    /* Skills Section */
+    .skills {
+      padding: 80px 60px;
+      background: #fff;
+      text-align: center;
+      border-radius: 20px;
+      margin: 40px auto;
+      width: 85%;
+      max-width: 1000px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .skills h3 {
+      font-size: 1rem;
+      color: #7b2cbf;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .skills h2 {
+      font-size: 2.2rem;
+      color: #4a1760;
+      margin-bottom: 40px;
+      font-family: Georgia, serif;
+    }
+
+    .skills h2 span {
+      color: #7b2cbf;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .skill-item {
+      background: #f3e7ff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(123,44,191,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(123,44,191,0.3);
+      background: #e9d3ff;
+    }
+
+    .skill-item img {
+      width: 65px;
+      margin-bottom: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover img {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    .skill-item p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #4a1760;
+    }
+
+    @media (max-width: 900px) {
+      .about { flex-direction: column; align-items: center; text-align: center; }
+      .about-photo { margin-bottom: 20px; }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Navigation -->
   <header>
     <div class="logo">Joanah Portfolio</div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#about" class="active">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="colorchange.html">Color Changer</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="about-container">
-      <!-- Profile Picture -->
-      <div class="about-photo animate-on-scroll">
-        <img src="about-photo.png" alt="Joanah Photo">
-      </div>
-
-      <!-- About Text -->
-      <div class="about-text animate-on-scroll">
-        <h3>About Me</h3>
-        <h2>Who is <span>Joanah?</span></h2>
-        <p>
-          I'm Joanah Loraine S. Mante, a passionate learner and aspiring developer 
-          who enjoys exploring the world of technology and creativity. I believe 
-          in continuous growth and turning ideas into meaningful projects.
-        </p>
-      </div>
-
-      <!-- Education Section (Below) -->
-      <div class="about-education animate-on-scroll">
-        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-        <ul>
-          <li><strong>Elementary:</strong> Ibo Elementary School (2012-2018, With Honors)</li>
-          <li><strong>Junior High:</strong> Mactan Airbase National High School (2018-2022, With Honors)</li>
-          <li><strong>Senior High:</strong> Asian Learning Center Inc. (2022-2024, With Honors)</li>
-          <li><strong>College:</strong> Cebu Technological University - Bachelor of Science in Information Technology</li>
-        </ul>
-        <a href="Mante RESUME (1) (2).pdf" class="btn" target="_blank">
-          <i class="fas fa-file-pdf"></i> View My Resume
-        </a>
-      </div>
+  <section class="about">
+    <div class="about-photo">
+      <img src="about-photo.png" alt="Joanah Photo">
+    </div>
+    <div class="about-text">
+      <h3>About Me</h3>
+      <h2>Who is <span>Joanah?</span></h2>
+      <p>
+        I'm Joanah Loraine S. Mante, a passionate learner and aspiring developer
+        who enjoys exploring the world of technology and creativity. I believe
+        in continuous growth and turning ideas into meaningful projects.
+      </p>
+    </div>
+    <div class="about-education">
+      <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+      <ul>
+        <li><strong>Elementary:</strong> Ibo Elementary School (2012-2018, With Honors)</li>
+        <li><strong>Junior High:</strong> Mactan Airbase National High School (2018-2022, With Honors)</li>
+        <li><strong>Senior High:</strong> Asian Learning Center Inc. (2022-2024, With Honors)</li>
+        <li><strong>College:</strong> Cebu Technological University - BSIT</li>
+      </ul>
+      <a href="Mante RESUME (1) (2).pdf" class="btn" target="_blank"><i class="fas fa-file-pdf"></i> View Resume</a>
     </div>
   </section>
 
-  <!-- Skills Section -->
   <section id="skills" class="skills">
     <h3>~ My Favorite Tools</h3>
     <h2>Exploring the Tools<br><span>Behind My Work</span></h2>
-
     <div class="skills-grid">
       <div class="skill-item">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
@@ -74,12 +260,12 @@
         <p>Python</p>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
-        <p>HTML</p>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <p>HTML5</p>
       </div>
       <div class="skill-item">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
-        <p>CSS</p>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        <p>CSS3</p>
       </div>
       <div class="skill-item">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
@@ -92,40 +278,16 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Joanah Loraine S. Mante | All Rights Reserved</p>
+    © 2025 Joanah Loraine S. Mante | All Rights Reserved
   </footer>
 
-  <!-- JS for scroll animation -->
   <script>
-    const scrollElements = document.querySelectorAll(".animate-on-scroll");
-
-    const elementInView = (el, dividend = 1) => {
-      const elementTop = el.getBoundingClientRect().top;
-      return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
-    };
-
-    const displayScrollElement = (element) => {
-      element.classList.add("scrolled");
-    };
-
-    const hideScrollElement = (element) => {
-      element.classList.remove("scrolled");
-    };
-
-    const handleScrollAnimation = () => {
-      scrollElements.forEach((el) => {
-        if (elementInView(el, 1.25)) {
-          displayScrollElement(el);
-        } else {
-          hideScrollElement(el);
-        }
-      })
-    }
-
-    window.addEventListener("scroll", () => {
-      handleScrollAnimation();
+    // Skill hover effect (JS extra)
+    const skills = document.querySelectorAll('.skill-item');
+    skills.forEach(skill => {
+      skill.addEventListener('mouseenter', () => { skill.style.background = '#e9d3ff'; });
+      skill.addEventListener('mouseleave', () => { skill.style.background = '#f3e7ff'; });
     });
   </script>
 </body>
