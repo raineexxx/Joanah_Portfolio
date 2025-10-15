@@ -1,0 +1,203 @@
+/* About Section */
+.about {
+  padding: 80px 10%;
+  background: #f9f7ff;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.about-photo{
+  flex: 0 0 320px;
+}
+.about-photo img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px; /* square with soft corners */
+  box-shadow: 0px 8px 20px rgba(123, 44, 191, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.about-photo img:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  flex: 1 1 500px;
+  min-width: 300px;
+}
+
+.about-text h3 {
+  font-size: 1rem;
+  color: #7b2cbf;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2d1a4a;
+}
+
+.about-text h2 span {
+  color: #7b2cbf;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Education Section */
+.about-education {
+  margin-bottom: 30px;
+}
+/* Education block forced under photo */
+.about-education {
+  flex-basis: 100%; /* pushes it below the photo */
+}
+
+
+.about-education h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #7b2cbf;
+}
+
+.about-education ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-education li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #2d1a4a;
+  padding-left: 20px;
+  position: relative;
+}
+
+.about-education li::before {
+  content: "•";
+  color: #7b2cbf;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+}
+
+.about-education strong {
+  color: #5a189a;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #7b2cbf;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #5a189a;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(123, 44, 191, 0.3);
+}
+
+/* Skills Section */
+.skills {
+  padding: 80px 10%;
+  text-align: center;
+  background: #fff;
+  animation: fadeIn 1.8s ease-in-out;
+}
+
+.skills h3 {
+  font-size: 1rem;
+  color: #7b2cbf;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.skills h2 {
+  font-size: 2rem;
+  color: #2d1a4a;
+  margin-bottom: 40px;
+}
+
+.skills h2 span {
+  color: #7b2cbf;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+}
+
+/* Skill Card */
+.skill-item {
+  background: #f3e7ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(123, 44, 191, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 1s forwards;
+}
+
+.skill-item:nth-child(1) { animation-delay: 0.3s; }
+.skill-item:nth-child(2) { animation-delay: 0.5s; }
+.skill-item:nth-child(3) { animation-delay: 0.7s; }
+.skill-item:nth-child(4) { animation-delay: 0.9s; }
+.skill-item:nth-child(5) { animation-delay: 1.1s; }
+.skill-item:nth-child(6) { animation-delay: 1.3s; }
+
+.skill-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 25px rgba(123, 44, 191, 0.3);
+}
+
+.skill-item img {
+  width: 65px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover img {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.skill-item p {
+  font-size: 1rem;
+  color: #2d1a4a;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

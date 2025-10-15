@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <link rel="stylesheet" href="welcome.css">
+</head>
+<body class="welcome-page">
+  <div class="welcome-container">
+    <div class="container welcome-card">
+      <h1 class="fade-text">Welcome to My Portfolio</h1>
+      <img src="welcome.png" alt="Welcome" class="welcome-image float" />
+      <p class="fade-text">Please register to continue.</p>
+      <div class="welcome-buttons">
+        <a href="registration.html" class="welcome-btn ripple">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Animations -->
+  <script>
+    // Fade in the card and text smoothly
+    window.addEventListener('load', () => {
+      document.querySelector('.welcome-card').style.opacity = '1';
+      document.querySelectorAll('.fade-text').forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, i * 300);
+      });
+    });
+
+    // Floating animation loop for the image
+    const image = document.querySelector('.welcome-image');
+    let direction = 1;
+    setInterval(() => {
+      image.style.transform = `translateY(${direction * 5}px)`;
+      direction *= -1;
+    }, 2000);
+
+    // Ripple effect for buttons
+    const buttons = document.querySelectorAll('.ripple');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const circle = document.createElement('span');
+        const diameter = Math.max(this.clientWidth, this.clientHeight);
+        const radius = diameter / 2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${e.clientX - this.offsetLeft - radius}px`;
+        circle.style.top = `${e.clientY - this.offsetTop - radius}px`;
+        circle.classList.add('ripple-effect');
+
+        const ripple = this.getElementsByClassName('ripple-effect')[0];
+        if (ripple) ripple.remove();
+
+        this.appendChild(circle);
+
+        // Optional: slight delay to simulate smooth redirect
+        setTimeout(() => {
+          window.location.href = this.getAttribute('href');
+        }, 400);
+
+        e.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Joanah Loraine</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="logo">Joanah Portfolio</div>
+    <nav>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <!-- Pure HTML form using mailto -->
+    <form action="mailto:joanahlorainem@gmail.com" method="post" enctype="text/plain">
+      <table>
+        <tr>
+          <td><label for="name">Your Name:</label></td>
+          <td><input type="text" id="name" name="Name" placeholder="Enter your name" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Your Email:</label></td>
+          <td><input type="email" id="email" name="Email" placeholder="Enter your email" required></td>
+        </tr>
+        <tr>
+          <td><label for="message">Your Message:</label></td>
+          <td><textarea id="message" name="Message" rows="5" placeholder="Type your message"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <button type="submit" class="btn">Send Message</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <p class="note"> 🌸 Just one click and I'll hear from you!</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Joanah Loraine S. Mante | All Rights Reserved</p>
+  </footer>
+</body>
+</html>

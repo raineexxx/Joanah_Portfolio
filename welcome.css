@@ -1,0 +1,513 @@
+/* Base variables */
+:root {
+  --bg: #f7f7fb;
+  --card-bg: #ffffff;
+  --text: #222333;
+  --muted: #666a73;
+  --primary: #6c63ff;
+  --primary-600: #5a52e6;
+  --ring: rgba(108, 99, 255, 0.35);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Page layout */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 100% -10%, #eaeafe 0%, rgba(234, 234, 254, 0) 60%),
+    radial-gradient(1200px 600px at -10% 100%, #e8fff6 0%, rgba(232, 255, 246, 0) 60%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+}
+
+/* Card container */
+.container {
+  width: min(92%, 560px);
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.container h1 {
+  margin: 0 0 8px;
+  font-size: 1.875rem;
+  letter-spacing: 0.2px;
+}
+
+.container p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+/* Welcome image */
+.container img {
+  display: block;
+  margin: 16px auto 12px;
+  width: 80%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 6px 8px 0;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--primary-600);
+  box-shadow: 0 12px 26px rgba(108, 99, 255, 0.45);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Small screens tweaks */
+@media (max-width: 360px) {
+  .container {
+    padding: 22px 18px;
+  }
+  .container h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f7f5ff, #efeaff, #f9f7ff);
+  color: #2d004d;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background: rgba(180, 150, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7b2cbf;
+  font-family: Georgia, serif;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+nav ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #2d004d;
+  transition: color 0.3s;
+}
+nav ul li a.active,
+nav ul li a:hover {
+  color: #7b2cbf;
+  font-weight: bold;
+}
+
+/* Auth Container - All pages: Illustration on the right */
+.auth-container,
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+  gap: 60px;
+  flex-direction: row-reverse;
+  flex-wrap: wrap; /* Moves illustration to the right */
+}
+
+/* Illustrations */
+.auth-image img,
+.registration-container .auth-image img {
+  max-width: 600px; /* Bigger illustration */
+  width: 100%;
+  height: auto;
+}
+
+/* Form Card */
+.auth-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.auth-form h2 {
+  margin-bottom: 25px;
+  color: #4a1760;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbb7f5;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+.input-group input:focus {
+  border: 1px solid #7b2cbf;
+}
+
+/* Options row */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+.options a {
+  text-decoration: none;
+  color: #7b2cbf;
+}
+
+/* Button */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #7b2cbf;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: #5a189a;
+  transform: scale(1.05);
+}
+
+/* Switch Links */
+.switch {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+.switch a {
+  text-decoration: none;
+  color: #7b2cbf;
+  font-weight: bold;
+}
+
+/* Welcome Page Specific Styles - Professional & Formal */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f7f5ff 0%, #efeaff 50%, #f9f7ff 100%);
+  position: relative;
+}
+
+.welcome-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(123, 44, 191, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(180, 150, 255, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-card h1 {
+  color: #1e293b;
+  font-size: 2.75rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.welcome-card p {
+  color: #64748b;
+  font-size: 1.125rem;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.welcome-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 16px;
+  margin: 32px 0;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.welcome-btn {
+  background: linear-gradient(135deg, #7b2cbf 0%, #5a189a 100%);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 14px rgba(123, 44, 191, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.welcome-btn:hover::before {
+  left: 100%;
+}
+
+.welcome-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(123, 44, 191, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #5a189a 0%, #3c096c 100%);
+}
+
+.welcome-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 4px 14px rgba(123, 44, 191, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.welcome-btn:focus {
+  outline: none;
+  box-shadow: 
+    0 4px 14px rgba(123, 44, 191, 0.25),
+    0 0 0 3px rgba(123, 44, 191, 0.12);
+}
+
+/* Professional footer */
+.welcome-footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 20px 16px;
+  }
+  
+  .welcome-card {
+    padding: 40px 24px;
+    border-radius: 20px;
+  }
+  
+  .welcome-card h1 {
+    font-size: 2.25rem;
+  }
+  
+  .welcome-card p {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+  
+  .welcome-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .welcome-btn {
+    width: 100%;
+    max-width: 240px;
+    padding: 16px 24px;
+  }
+  
+  .welcome-image {
+    max-width: 240px;
+    margin: 24px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-card {
+    padding: 32px 20px;
+  }
+  
+  .welcome-card h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Hide global header/nav on auth pages (login & registration) */
+body.auth-page header,
+body.auth-page nav,
+body.auth-page .site-header,
+body.auth-page .header,
+body.auth-page .topbar,
+body.auth-page .navbar,
+body.auth-page .navbar-fixed,
+body.auth-page .navigation,
+body.auth-page .nav,
+body.auth-page .menu,
+body.auth-page .menubar,
+body.auth-page [role="navigation"],
+body.auth-page [data-role="header"],
+body.auth-page .app-header {
+  display: none !important;
+}
+
+/* Ensure no offset from fixed headers on auth pages */
+body.auth-page {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Fade-in and float animations */
+.welcome-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.welcome-card[style*="opacity: 1"] {
+  transform: translateY(0);
+}
+
+/* Fade-in text */
+.fade-text {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating effect (image moves slightly up and down) */
+.welcome-image.float {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.6);
+  animation: ripple-animation 0.6s linear;
+  z-index: 0;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
