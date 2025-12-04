@@ -1,33 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register - Joanah Portfolio</title>
   <link rel="stylesheet" href="welcome.css">
+</head>
+
+<body>
   <section class="auth-container">
     <div class="auth-image">
       <img src="register-illustration.png" alt="Register Illustration">
     </div>
+
     <div class="auth-form">
       <h2>Sign up</h2>
-      <form action="index.html" method="get">
+      <form id="registerForm">
         <div class="input-group">
-          <input type="text" placeholder="Full Name" required>
+          <input type="text" id="fullName" placeholder="Full Name" required>
         </div>
         <div class="input-group">
-          <input type="email" placeholder="Email Address" required>
+          <input type="email" id="email" placeholder="Email Address" required>
         </div>
         <div class="input-group">
-          <input type="password" placeholder="Password" required>
+          <input type="password" id="password" placeholder="Password" required>
         </div>
         <div class="input-group">
-          <input type="password" placeholder="Confirm Password" required>
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
         </div>
+
         <button type="submit" class="btn">Create Account</button>
         <p class="switch">or <a href="login.html">Log in</a></p>
       </form>
     </div>
   </section>
+
+  <!-- ✅ Registration Script -->
+  <script>
+    const registerForm = document.getElementById("registerForm");
+
+    if (registerForm) {
+      registerForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        // Check if email is already registered
+        if (localStorage.getItem("user_" + email)) {
+          alert("This email is already registered. Please login.");
+          return;
+        }
+
+        // Save new user in localStorage
+        localStorage.setItem("user_" + email, password);
+        localStorage.setItem("fullname_" + email, fullName);
+
+        alert("Registration successful! Please login to continue.");
+        window.location.href = "login.html";
+      });
+    }
+  </script>
 </body>
 </html>
