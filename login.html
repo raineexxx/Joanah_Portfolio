@@ -4,29 +4,314 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Joanah Portfolio</title>
-  <link rel="stylesheet" href="welcome.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <section class="auth-container">
-    <div class="auth-image">
-      <img src="login-illustration.png" alt="Login Illustration">
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f3e7ff, #e9d3ff, #f8e1ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(123, 44, 191, 0.2);
+      max-width: 450px;
+      width: 100%;
+      padding: 50px 40px;
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 40px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .logo h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #7b2cbf, #c77dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .logo p {
+      color: #7b2cbf;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      color: #2d004d;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      color: #4a1760;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e9d3ff;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      color: #2d004d;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #7b2cbf;
+      box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+    }
+
+    input::placeholder {
+      color: #c77dff;
+      font-weight: 400;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #7b2cbf, #c77dff);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(123, 44, 191, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(123, 44, 191, 0.45);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .demo-btn {
+      width: 100%;
+      padding: 12px;
+      background: #e9d3ff;
+      color: #7b2cbf;
+      border: 2px solid #7b2cbf;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .demo-btn:hover {
+      background: #7b2cbf;
+      color: white;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 25px;
+      color: #4a1760;
+      font-weight: 500;
+    }
+
+    .register-link a {
+      color: #7b2cbf;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .register-link a:hover {
+      color: #c77dff;
+    }
+
+    .error {
+      background: #ffebee;
+      color: #c2185b;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .demo-note {
+      background: #f3e7ff;
+      color: #7b2cbf;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 35px 25px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .logo h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1>Joanah</h1>
+      <p>Portfolio Login</p>
     </div>
-    <div class="auth-form">
-      <h2>Log in</h2>
-      <form action="index.html" method="get">
-        <div class="input-group">
-          <input type="text" placeholder="Username" required>
-        </div>
-        <div class="input-group">
-          <input type="password" placeholder="Password" required>
-        </div>
-        <div class="options">
-          <label><input type="checkbox"> Remember Me</label>
-          <a href="#">Forgot Password?</a>
-        </div>
-        <button type="submit" class="btn">Log in</button>
-        <p class="switch">or <a href="registration.html">Sign up</a></p>
-      </form>
+
+    <h2>Welcome Back</h2>
+
+    <div class="error" id="errorMsg"></div>
+    <div class="success" id="successMsg"></div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+      <button type="button" class="demo-btn" onclick="demoLogin()">Demo Login</button>
+    </form>
+
+    <div class="demo-note">
+      💡 Use Demo Login to access without registering
     </div>
-  </section>
+
+    <div class="register-link">
+      Don't have an account? <a href="register.html">Register here</a>
+    </div>
+  </div>
+
+  <script>
+    // Initialize demo users on first load
+    function initializeDemoUsers() {
+      if (!localStorage.getItem('users')) {
+        const demoUsers = [
+          { fullname: 'Demo User', email: 'demo@example.com', password: 'demo123' },
+          { fullname: 'Joanah Loraine', email: 'joanah@example.com', password: 'password123' }
+        ];
+        localStorage.setItem('users', JSON.stringify(demoUsers));
+      }
+    }
+
+    // Initialize on page load
+    initializeDemoUsers();
+
+    // Regular Login
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMsg = document.getElementById('errorMsg');
+      const successMsg = document.getElementById('successMsg');
+
+      // Get registered users from localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        successMsg.textContent = '✓ Login successful! Redirecting...';
+        successMsg.style.display = 'block';
+        errorMsg.style.display = 'none';
+        localStorage.setItem('userLoggedIn', 'true');
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
+      } else {
+        errorMsg.textContent = '✗ Invalid email or password!';
+        errorMsg.style.display = 'block';
+        successMsg.style.display = 'none';
+      }
+    });
+
+    // Demo Login
+    function demoLogin() {
+      const successMsg = document.getElementById('successMsg');
+      const errorMsg = document.getElementById('errorMsg');
+      
+      const demoUser = {
+        fullname: 'Demo User',
+        email: 'demo@example.com',
+        password: 'demo123'
+      };
+
+      successMsg.textContent = '✓ Demo login successful! Redirecting...';
+      successMsg.style.display = 'block';
+      errorMsg.style.display = 'none';
+      localStorage.setItem('userLoggedIn', 'true');
+      localStorage.setItem('currentUser', JSON.stringify(demoUser));
+      
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+  </script>
 </body>
 </html>
